@@ -39,13 +39,13 @@ const romanNumeralHundreds = {
 export function convertNumberToRomanNumeral(number) {
   if (number === undefined) throw new Error("number is required");
 
-  let numArr = Array.from(number.toString());
+  let numArr = Array.from(number.toString()).reverse();
 
   // hundreds
   if (numArr.length === 3) {
-    const hundreds = numArr[0];
+    const hundreds = numArr[2];
     const tens = numArr[1];
-    const units = numArr[2];
+    const units = numArr[0];
 
     const romanNum =
       romanNumeralHundreds[hundreds] +
@@ -55,8 +55,8 @@ export function convertNumberToRomanNumeral(number) {
   }
   // tens
   if (numArr.length === 2) {
-    const tens = numArr[0];
-    const units = numArr[1];
+    const tens = numArr[1];
+    const units = numArr[0];
 
     const romanNum = romanNumeralTens[tens] + romanNumeralUnits[units];
     return romanNum;
