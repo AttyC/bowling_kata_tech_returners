@@ -7,4 +7,10 @@ describe("prints individual digits as string of Roman Numerals", () => {
   test("prints II if number is 2", () => {
     expect(convertNumberToRomanNumeral(2)).toBe("II");
   });
+  test("prints X if number is 10", () => {
+    expect(convertNumberToRomanNumeral(10)).toBe("X");
+  });
+  test("prints XX if number is 20", () => {
+    expect(convertNumberToRomanNumeral(20)).toBe("XX");
+  });
 });
