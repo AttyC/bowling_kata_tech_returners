@@ -53,3 +53,24 @@ describe("converts numbers over 1000 to string of Roman Numerals", () => {
     expect(convertNumberToRomanNumeral(1478)).toBe("MCDLXXVIII");
   });
 });
+
+describe("will not convert invalid numbers", () => {
+  test("throws error if number is over 3000", () => {
+    expect(() => convertNumberToRomanNumeral(4000)).toThrow(
+      "number must be between 1 and 3000"
+    );
+  });
+  test("throws error if number is less than 1", () => {
+    expect(() => convertNumberToRomanNumeral(0)).toThrow(
+      "number must be between 1 and 3000"
+    );
+    expect(() => convertNumberToRomanNumeral(-40)).toThrow(
+      "number must be between 1 and 3000"
+    );
+  });
+  test("throws error if is not a number", () => {
+    expect(() => convertNumberToRomanNumeral("cat")).toThrow(
+      "number is required"
+    );
+  });
+});

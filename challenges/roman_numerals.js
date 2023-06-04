@@ -44,18 +44,21 @@ const romanNumeralThousands = {
 };
 
 export function convertNumberToRomanNumeral(number) {
-  if (number === undefined) throw new Error("number is required");
+  if (number === undefined || isNaN(number))
+    throw new Error("number is required");
+  if (number > 3000 || number < 1)
+    throw new Error("number must be between 1 and 3000");
 
-  let reversedNumbersArray = Array.from(number.toString()).reverse();
+  const reversedNumbersArray = Array.from(number.toString()).reverse();
 
   const thousands = reversedNumbersArray[3];
   const hundreds = reversedNumbersArray[2];
   const tens = reversedNumbersArray[1];
   const units = reversedNumbersArray[0];
 
-  const romanNum = `${romanNumeralThousands[thousands] || ""}${
+  const romanNumeral = `${romanNumeralThousands[thousands] || ""}${
     romanNumeralHundreds[hundreds] || ""
   }${romanNumeralTens[tens] || ""}${romanNumeralUnits[units] || ""}`;
 
-  return romanNum;
+  return romanNumeral;
 }
