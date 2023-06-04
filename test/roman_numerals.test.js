@@ -44,3 +44,9 @@ describe("converts numbers over 100 to string of Roman Numerals", () => {
     expect(convertNumberToRomanNumeral(921)).toBe("CMXXI");
   });
 });
+
+describe("converts numbers over 1000 to string of Roman Numerals", () => {
+  test("prints CCC if number is 3000", () => {
+    expect(convertNumberToRomanNumeral(3000)).toBe("MMM");
+  });
+});

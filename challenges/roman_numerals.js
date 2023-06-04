@@ -25,6 +25,7 @@ const romanNumeralTens = {
 };
 
 const romanNumeralHundreds = {
+  0: "",
   1: "C",
   2: "CC",
   3: "CCC",
@@ -35,12 +36,32 @@ const romanNumeralHundreds = {
   8: "DCCC",
   9: "CM",
 };
+const romanNumeralThousands = {
+  0: "",
+  1: "M",
+  2: "MM",
+  3: "MMM",
+};
 
 export function convertNumberToRomanNumeral(number) {
   if (number === undefined) throw new Error("number is required");
 
   let reversedNumbersArray = Array.from(number.toString()).reverse();
 
+  // thousands
+  if (reversedNumbersArray.length === 4) {
+    const thousands = reversedNumbersArray[3];
+    const hundreds = reversedNumbersArray[2];
+    const tens = reversedNumbersArray[1];
+    const units = reversedNumbersArray[0];
+
+    const romanNum =
+      romanNumeralThousands[thousands] +
+      romanNumeralHundreds[hundreds] +
+      romanNumeralTens[tens] +
+      romanNumeralUnits[units];
+    return romanNum;
+  }
   // hundreds
   if (reversedNumbersArray.length === 3) {
     const hundreds = reversedNumbersArray[2];
