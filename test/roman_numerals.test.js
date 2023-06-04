@@ -36,3 +36,11 @@ describe("converts numbers over 10 and under 100 to string of Roman Numerals", (
     expect(convertNumberToRomanNumeral(16)).toBe("XVI");
   });
 });
+describe("converts numbers over 100 to string of Roman Numerals", () => {
+  test("prints CCC if number is 300", () => {
+    expect(convertNumberToRomanNumeral(300)).toBe("CCC");
+  });
+  test("prints CMXXI if number is 921", () => {
+    expect(convertNumberToRomanNumeral(921)).toBe("CMXXI");
+  });
+});
