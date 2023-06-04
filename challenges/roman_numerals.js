@@ -48,41 +48,14 @@ export function convertNumberToRomanNumeral(number) {
 
   let reversedNumbersArray = Array.from(number.toString()).reverse();
 
-  // thousands
-  if (reversedNumbersArray.length === 4) {
-    const thousands = reversedNumbersArray[3];
-    const hundreds = reversedNumbersArray[2];
-    const tens = reversedNumbersArray[1];
-    const units = reversedNumbersArray[0];
+  const thousands = reversedNumbersArray[3];
+  const hundreds = reversedNumbersArray[2];
+  const tens = reversedNumbersArray[1];
+  const units = reversedNumbersArray[0];
 
-    const romanNum =
-      romanNumeralThousands[thousands] +
-      romanNumeralHundreds[hundreds] +
-      romanNumeralTens[tens] +
-      romanNumeralUnits[units];
-    return romanNum;
-  }
-  // hundreds
-  if (reversedNumbersArray.length === 3) {
-    const hundreds = reversedNumbersArray[2];
-    const tens = reversedNumbersArray[1];
-    const units = reversedNumbersArray[0];
+  const romanNum = `${romanNumeralThousands[thousands] || ""}${
+    romanNumeralHundreds[hundreds] || ""
+  }${romanNumeralTens[tens] || ""}${romanNumeralUnits[units] || ""}`;
 
-    const romanNum =
-      romanNumeralHundreds[hundreds] +
-      romanNumeralTens[tens] +
-      romanNumeralUnits[units];
-    return romanNum;
-  }
-  // tens
-  if (reversedNumbersArray.length === 2) {
-    const tens = reversedNumbersArray[1];
-    const units = reversedNumbersArray[0];
-
-    const romanNum = romanNumeralTens[tens] + romanNumeralUnits[units];
-    return romanNum;
-  }
-
-  // units
-  if (reversedNumbersArray.length <= 1) return romanNumeralUnits[number];
+  return romanNum;
 }
