@@ -13,4 +13,7 @@ describe("prints individual digits as string of Roman Numerals", () => {
   test("prints XX if number is 20", () => {
     expect(convertNumberToRomanNumeral(20)).toBe("XX");
   });
+  test("prints XIV if number is 16", () => {
+    expect(convertNumberToRomanNumeral(16)).toBe("XVI");
+  });
 });
