@@ -1,5 +1,5 @@
 import { getScore } from "../challenges/bowling";
-describe("strike scoring", () => {
+describe("Frame 1 scoring", () => {
   test("return X if I bowl a strike", () => {
     const frame1 = [10, 0];
     expect(getScore(frame1)).toBe("X");
@@ -7,6 +7,10 @@ describe("strike scoring", () => {
   test("return / if I bowl a spare", () => {
     const frame1 = [3, 7];
     expect(getScore(frame1)).toBe("/");
+  });
+  test("return score when I don't bowl a strike or spare", () => {
+    const frame1 = [2, 6];
+    expect(getScore(frame1)).toBe(8);
   });
 });
 
