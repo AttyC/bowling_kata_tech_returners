@@ -4,6 +4,10 @@ describe("strike scoring", () => {
     const frame1 = [10, 0];
     expect(getScore(frame1)).toBe("X");
   });
+  test("return / if I bowl a spare", () => {
+    const frame1 = [3, 7];
+    expect(getScore(frame1)).toBe("/");
+  });
 });
 
 // Arrange, Act, Assert
